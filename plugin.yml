@@ -1,0 +1,24 @@
+name: ElderZoneCrypt
+version: 1.0
+author: yaoguai
+api-version: 1.18
+main: EZC
+commands:
+  cryptmob:
+    description: get a mob
+    usage: /cryptmob id
+  cryptboss:
+    description: get a boss
+    usage: /cryptboss id
+  getweapon:
+    description: get some weapon
+    usage: /getweapon id
+  getformula:
+    description: get all formulas
+    usage: /getformula
+  mapability:
+    description: use map abilities
+    usage: /mapability id
+  clearscore:
+    description: clear scoreboard
+    usage: /clearscore

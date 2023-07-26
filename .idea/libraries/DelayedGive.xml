@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DelayedGive">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../DelayedGive.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

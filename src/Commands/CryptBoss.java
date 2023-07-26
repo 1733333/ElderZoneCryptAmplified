@@ -1,0 +1,40 @@
+package Commands;
+
+import Pool.MobPool;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class CryptBoss implements CommandExecutor {
+    JavaPlugin plugin;
+    public void setPlugin(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+    MobPool mp = MobPool.getInstance();
+    @Override
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        if(commandSender instanceof Player){
+            Player p =(Player) commandSender;
+            Location loc = p.getLocation();
+            if(p.isOp()){
+                if(strings.length == 0){
+                    p.sendMessage(ChatColor.RED + "请输入Boss ID");
+                    return false;
+                }
+                try {
+                    int type = Integer.parseInt(strings[0]);
+                    mp.spawnBossType(loc,type,1,p);
+                }catch (Exception e){
+                    p.sendMessage(ChatColor.RED + "Oops,看起来你输入的不是数字");
+                }
+            }else {
+                p.sendMessage(ChatColor.RED + "你不是服务器的管理员，所以这个指令你不能用");
+            }
+        }
+        return true;
+    }
+}
